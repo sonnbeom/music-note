@@ -1,21 +1,3 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-// @ts-ignore
-import eslint from 'vite-plugin-eslint';
-
-
-export default defineConfig({
-  plugins: [
-    react(),
-    eslint({
-      fix: true, // 자동으로 ESLint 오류 수정
-    })],
-  esbuild: {
-    jsxInject: `import React from 'react'`, // JSX 사용 시 React 자동 import
-  },
-  resolve: {
-    alias: {
-      '@': '/src', // 절대 경로 import 지원
-    },
-  },
-});
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec390be180252204f1d0b2f53a85e6c71a72d58650b58f97f3910e39fe68bdb3
+size 514
