@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e541ba90dd383725fdb4d17c96151d2c02e2948d0fe8d46b1228288175ea67d0
-size 655
+server:
+  port: 8761
+
+spring:
+  application:
+    name: gateway-server
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
