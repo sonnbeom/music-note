@@ -1,19 +1,3 @@
-// init-mongo.js
-print("MongoDB 초기 사용자 설정 시작...");
-
-db = db.getSiblingDB("admin");
-db.createUser({
-    user: "music",
-    pwd: "note",
-    roles: [{ role: "readWrite", db: "musicdb" }]
-});
-
-// test 데이터베이스 USER 생성
-db = db.getSiblingDB("test");
-db.createUser({
-    user: "test",
-    pwd: "1234",
-    roles: [{ role: "readWrite", db: "test" }]
-});
-
-print("✅ test 계정 생성 완료!");
+version https://git-lfs.github.com/spec/v1
+oid sha256:8159394e748e1d65079463fc8b1a10e5abdab1fd689c2e0fafd7b69b8683caec
+size 1607
