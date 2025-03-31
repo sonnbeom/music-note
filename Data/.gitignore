@@ -31,5 +31,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# CSV files
+# dataset files
 *.csv
+*.json
