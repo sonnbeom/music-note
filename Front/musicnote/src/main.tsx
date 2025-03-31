@@ -1,15 +1,3 @@
-import './styles/Global.css'
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import App from './App.tsx'
-
-const queryClient = new QueryClient()
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </StrictMode>,
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:2ddb0de8ae07f5e6e04bd2ce1e2a303b1f51131a97bbcc9e07107e2fb8d0c271
+size 790
