@@ -1,11 +1,3 @@
-# routers/bigfive_predict.py
-
-from fastapi import APIRouter
-from modelschemas.request_response import FeatureList, BigFiveScore
-from services.bigfive_predictor import predict_bigfive_average
-
-router = APIRouter()
-
-@router.post("/predict/bigfive", response_model=BigFiveScore)
-def predict_bigfive(data: FeatureList):
-    return predict_bigfive_average(data.tracks)
+version https://git-lfs.github.com/spec/v1
+oid sha256:0c475f44111e7fb58ca4041b5808595931fe15757154894767468666c560d5f1
+size 812
