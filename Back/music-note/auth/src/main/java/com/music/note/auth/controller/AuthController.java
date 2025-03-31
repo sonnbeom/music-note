@@ -1,13 +1,3 @@
-package com.music.note.auth.controller;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class AuthController {
-	@GetMapping("/test")
-	public String test(){
-		return "테스트 호출 - 인증 서버";
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dce8d562ab981eae4e836f5bb4c02324e12ddabc63a66d0c11a2d69e80ed07a5
+size 1570
