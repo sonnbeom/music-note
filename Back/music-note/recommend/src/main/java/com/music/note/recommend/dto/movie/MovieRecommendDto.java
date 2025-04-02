@@ -1,19 +1,3 @@
-package com.music.note.recommend.dto.movie;
-
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.Getter;
-
-@Getter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class MovieRecommendDto {
-	private List<Integer> genreIds;
-	private int id;
-	private String overview;
-	private String posterPath;
-	private String releaseDate;
-	private String title;
-	private double voteAverage;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2a512b014918488b9e549ae6d05809976e0d6630a6e6cb3421f82bc54c16cf93
+size 734
