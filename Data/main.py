@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:768bc03b0dedf0cc0e6d266f605cae60abf7c1faad52110325509fe62dc3b0c0
-size 632
+# main.py
+
+from fastapi import FastAPI
+from routers import router as main_router
+
+app = FastAPI(title="성격 기반 추천 API")
+
+# 통합 라우터 등록
+app.include_router(main_router, prefix="/data/api")
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Personality Prediction API based on MUSIC model"}
