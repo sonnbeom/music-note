@@ -1,36 +1,3 @@
-# .gitignore for FastAPI analysis server
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environment
-venv/
-.env
-
-# Distribution / packaging
-build/
-dist/
-*.egg-info/
-
-# Jupyter Notebooks
-.ipynb_checkpoints
-
-# Model files
-models/*.pkl
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# IDE configs
-.vscode/
-.idea/
-
-# dataset files
-*.csv
-*.json
+version https://git-lfs.github.com/spec/v1
+oid sha256:702a346c96a4ea30d6c625b6a69263edd576e3106e079fb5a23c0ed1106d42ce
+size 518
