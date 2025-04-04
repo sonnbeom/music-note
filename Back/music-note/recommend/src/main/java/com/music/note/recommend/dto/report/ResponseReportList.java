@@ -1,4 +1,4 @@
-package com.music.note.recommend.dto.type;
+package com.music.note.recommend.dto.report;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Getter
 public class ResponseReportList {
-	private List<ResponseReport> responseTypeWithReportIds = new ArrayList<>();
+	private List<ResponseReportWithTypeDto> responseTypeWithReportIds = new ArrayList<>();
 	private int listSize;
 
 	public void allocateSize(){
