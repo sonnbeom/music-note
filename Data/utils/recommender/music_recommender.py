@@ -1,9 +1,3 @@
-from modelschemas.request_response import BigFiveScore
-
-
-class MusicRecommender:
-    def __init__(self):
-        pass
-
-    def recommend_books_from_bigfive(self, bigfive: BigFiveScore):
-        pass
+version https://git-lfs.github.com/spec/v1
+oid sha256:5461f6cfbf9ac25f9b0b1e0bda01680aa1ad23de96a8c5ba155114d7e24073ea
+size 990
