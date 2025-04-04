@@ -11,10 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TypeDto {
+public class TrendTypeDto {
 	private double openness;
 	private double conscientiousness;
 	private double extraVersion;
 	private double agreeableness;
 	private double neuroticism;
+	private LocalDateTime createdAt;
 }

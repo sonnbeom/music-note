@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ResponseReportDto {
-	@Field("top_text")
+
 	private String topScore;
 	private String topText;
 	private String lowScore;
