@@ -1,12 +1,3 @@
-package com.music.note.recommend.service.like.book;
-
-import org.springframework.stereotype.Service;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
-@Service
-@Slf4j
-@RequiredArgsConstructor
-public class RecommendBookLikeService {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d1bf27ee494b3dda2d4785f73fcbfc18169da68bf22c1f38c4c92fb7beb2064
+size 3221
