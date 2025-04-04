@@ -1,14 +1,3 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import AppRoutes from "./routes/AppRoutes.tsx";
-import NavBar from "./components/layout/NavBar.tsx";
-import "./styles/Global.css";
-function App() {
-  return (
-    <Router>
-      <NavBar />
-      <AppRoutes />
-    </Router>
-  );
-}
-
-export default App;
+version https://git-lfs.github.com/spec/v1
+oid sha256:3decfb1f5368780953ee6282ed1067456ddf6e816c12cfdf2727888b33217f14
+size 1142
