@@ -1,21 +1,3 @@
-package com.music.note.recommend.dto.report;
-
-import org.springframework.data.mongodb.core.mapping.Field;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class ResponseReportDto {
-
-	private String topScore;
-	private String topText;
-	private String lowScore;
-	private String lowText;
-	private String summary;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d31463617b6d3ef45ad7dd7f500b519137f52bb91bc3549ba7c5484a916e1cf
+size 536

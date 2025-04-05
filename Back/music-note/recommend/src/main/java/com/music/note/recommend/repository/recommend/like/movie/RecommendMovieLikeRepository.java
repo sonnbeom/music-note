@@ -1,13 +1,3 @@
-package com.music.note.recommend.repository.recommend.like.movie;
-
-import java.util.Optional;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-
-import com.music.note.recommend.domain.like.movie.RecommendMovieLikes;
-
-@Repository
-public interface RecommendMovieLikeRepository extends MongoRepository<RecommendMovieLikes, String> {
-	Optional<RecommendMovieLikes> findByUserId(String userId);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2f13d2ebaf42f7632b38f7c3687b4f431cd529f3ccecef85ccc2895e82c4800e
+size 724
