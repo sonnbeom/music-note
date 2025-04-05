@@ -1,18 +1,3 @@
-package com.music.note.recommend.mapper.like.movie;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.stereotype.Component;
-
-import com.music.note.recommend.domain.like.movie.RecommendMovieLikes;
-
-@Component
-public class RecommendMovieLikeMapper {
-	public RecommendMovieLikes createRecommendMovieLikes(String id, String userId) {
-		return RecommendMovieLikes.builder()
-			.likedMusicIds(new ArrayList<>(List.of(id)))
-			.userId(userId)
-			.build();
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0097f250c261f76e48824dace501c3dc045788c67b4d54243b8d02d8dcda88b1
+size 551
