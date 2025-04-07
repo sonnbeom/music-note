@@ -1,10 +1,3 @@
-package com.music.note.recommend.repository.recommend.book;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-
-import com.music.note.recommend.domain.recommned.book.RecommendBook;
-
-@Repository
-public interface RecommendBookRepository extends MongoRepository<RecommendBook, String> {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7521dd0123eb905097e189c450cdeeaa1506fb96c1466e71d6fcbef0ffe6b146
+size 543
