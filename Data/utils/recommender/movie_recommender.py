@@ -1,12 +1,3 @@
-# movie_recommender.py
-from typing import Dict, List
-
-from modelschemas.request_response import BigFiveScore, MovieList
-from utils.pick_user import user as pick_user_by_personality
-from utils.get_movie import user_genre
-from utils.api_request import recommend
-
-class MovieRecommender:
-    def __init__(self):
-        pass
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7682e70f94e8544e8944a5e0f8199517e8ff5f407495a702a4c50bc8243d2ae
+size 1417

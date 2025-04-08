@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:50bf62873451d9412cba710a20b1b4c4fa34402a131a0b0e7ac6dd369abce39f
-size 596
+# routers/movie_recommend.py
+
+from fastapi import APIRouter
+from modelschemas.request_response import BigFiveScore, MovieList
+from utils.recommender.movie_recommender import MovieRecommender
+router = APIRouter()
+
+@router.post("/movie", response_model=MovieList)
+def recommend_movie(data: BigFiveScore):
+
+    response = MovieRecommender()
+    results = response.recommend_movies_from_bigfive(data)
+    print(results)
+    return results
+
