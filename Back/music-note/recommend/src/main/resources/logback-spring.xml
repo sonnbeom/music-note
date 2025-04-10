@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-
-    <include resource="org/springframework/boot/logging/logback/base.xml"/>
-
-    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>elk-logstash:5000</destination>
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-        </encoder>
-    </appender>
-
-    <root level="INFO">
-        <appender-ref ref="LOGSTASH"/>
-    </root>
-</configuration>
+version https://git-lfs.github.com/spec/v1
+oid sha256:fbaf81b5e1da08de2daac554500ed868f75951aec6dfed154be58d2ee9535a61
+size 1165
