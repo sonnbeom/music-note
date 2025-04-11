@@ -1,15 +1,3 @@
-package com.music.note.kafkaeventmodel.type;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-@Getter
-@RequiredArgsConstructor
-public enum RequestType {
-	MANUAL("수동 요청"),
-	AUTOMATIC("자동 요청"),
-	WEEKLY("주간 요청");
-
-	private final String label;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4261c57fb4b352c891aa5ede53cdaa9c050c62334738df716197eea0490eb4f6
+size 583
