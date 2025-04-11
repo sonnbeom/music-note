@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a2c4c72b46d92f8be10c7023b1f89dcb914484514ef80e1d8f41b430a06bc7b4
-size 609
+# routers/report.py
+
+from fastapi import APIRouter
+from modelschemas.request_response import BigFiveScore, Report, WeeklyReport
+from utils.generator.report_generator_v3 import ReportGenerator
+from typing import List
+
+router = APIRouter()
+
+generator = ReportGenerator(use_korean=True)  # 또는 False
+
+@router.post("/daily/quote")
+def generate_daily_quote(data: BigFiveScore):
+    return {
+    "quote" : generator.generate_today_quote(data)
+    }
+
+
+@router.post("/weekly", response_model=WeeklyReport)
+def generate_weekly_report(scores: List[BigFiveScore]):
+    return generator.generate_weekly_report(scores)

@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78068919219f26c9639ddf182352bc6f8d1c02b20b216f0159c6a557d974c371
-size 725
+package com.music.note.recommend.domain.recommned.book;
+
+import java.time.LocalDateTime;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Document(collection = "recommend_book")
+public class RecommendBook {
+	@Id
+	private String id;
+	private String title;
+	private String author;
+	private String description;
+	private String isbn;
+	private String userId;
+	private String pubdate;
+	private String image;
+	private String publisher;
+	@Builder.Default
+	private LocalDateTime createdAt = LocalDateTime.now();
+}
+

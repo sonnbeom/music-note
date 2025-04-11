@@ -1,3 +1,55 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c0a77f5adda85257808209223bff471f878ef9d0c948165724398213d8e2fc61
-size 1414
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.music.note'
+version = '0.0.1-SNAPSHOT'
+
+tasks.named('bootJar'){ 
+    enabled = true
+}
+
+tasks.named('jar'){
+    enabled = false
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.1.4'
+    implementation platform('org.springframework.cloud:spring-cloud-dependencies:2024.0.0')
+
+    implementation "io.jsonwebtoken:jjwt:0.9.1"
+    // JAX-B API 의존성
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+
+    // JAX-B 구현체 의존성
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'mysql:mysql-connector-java:8.0.29'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation project(':common')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

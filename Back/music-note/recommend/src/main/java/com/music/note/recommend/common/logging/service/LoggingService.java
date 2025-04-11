@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b8423622099b66208be325620cb1841b5a3477f49dd62f2bc868e4ea1c2e9f64
-size 776
+package com.music.note.recommend.common.logging.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.music.note.recommend.common.logging.dto.LogEvent;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class LoggingService {
+	private final ObjectMapper objectMapper;
+
+	private final Logger logger = LoggerFactory.getLogger("ELK_LOGGER");
+	public void log(LogEvent event) {
+		try {
+			String json = objectMapper.writeValueAsString(event);
+			logger.info(json);
+		} catch (JsonProcessingException e) {
+			logger.error("Failed to serialize LogEvent", e);
+		}
+	}
+}

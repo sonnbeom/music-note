@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8305a4206f7ed552dbc6c55ec5aff774ef8869bfa71e7f3435085e51c0b19c96
-size 761
+export interface Movie {
+  id: number;
+  recommendMovieId: string;
+  title: string;
+  poster_path: string;
+  backdrop_path: string;
+  release_date: string;
+  vote_average: number;
+  genres: string[];
+  credits: {
+    name: string;
+    role: string;
+  }[];
+  runtime: number;
+  adult: boolean;
+  popularity: number;
+  overview: string;
+  is_liked: boolean;
+}
+
+export interface Music {
+  id: string;
+  recommendMusicId: string;
+  track_name: string;
+  artist_name: string;
+  albumcover_path: string;
+  release_date: string;
+  duration_ms: number;
+  is_liked: boolean;
+}
+
+export interface Book {
+  id: string;
+  title: string;
+  author: string;
+  image: string;
+  isbn: string;
+  pubdate: string;
+  publisher: string;
+  description: string;
+  is_liked: boolean;
+}

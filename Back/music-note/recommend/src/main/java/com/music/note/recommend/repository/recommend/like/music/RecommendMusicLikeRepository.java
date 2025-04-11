@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abc3977ec81c57b8cf93d0c17b805084e60bf6b68ace9b0ede6b60e44a7c08db
-size 1229
+package com.music.note.recommend.repository.recommend.like.music;
+
+import java.util.Optional;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.repository.Update;
+import org.springframework.stereotype.Repository;
+
+import com.music.note.recommend.domain.like.music.RecommendMusicLikes;
+
+@Repository
+public interface RecommendMusicLikeRepository extends MongoRepository<RecommendMusicLikes, String> {
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$addToSet': { 'liked_music_ids': ?1 } }")
+	void addMusicLike(String recommendMusicLikesId, String musicId);
+
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$addToSet': { 'liked_music_spotify_music_id': ?1 } }")
+	void addMusicLikeBySpotifyMusicId(String recommendMusicLikesId, String spotifyMusicId);
+
+	Optional<RecommendMusicLikes> findByUserId(String userId);
+
+	// @Query("{ '_id': ?0 }")
+	// @Update("{ '$pull': { 'liked_music_ids': ?1 } }")
+	// void removeMusicLike(String recommendMusicLikesId, String musicId);
+
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$pull': { 'liked_music_spotify_music_id': ?1 } }")
+	void removeMusicLike(String recommendMusicLikesId, String spotifyMusicId);
+}

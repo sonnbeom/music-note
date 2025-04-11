@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ca2c63eaff057df0f5ed396466e259fb27a3d5516bc8e06c53bdd91d17e9f9c6
-size 1181
+package com.music.note.recommend.repository.recommend.like.movie;
+
+import java.util.Optional;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.data.mongodb.repository.Update;
+import org.springframework.stereotype.Repository;
+
+import com.music.note.recommend.domain.like.movie.RecommendMovieLikes;
+
+@Repository
+public interface RecommendMovieLikeRepository extends MongoRepository<RecommendMovieLikes, String> {
+	Optional<RecommendMovieLikes> findByUserId(String userId);
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$addToSet': { 'liked_movie_ids': ?1 } }")
+	void addMovieLike(String recommendMovieLikesId, String movieId);
+
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$addToSet': { 'liked_tmdb_movie_ids': ?1 } }")
+	void addTmdbMovieLike(String recommendMovieLikesId, int tmdbMovieId);
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$pull': { 'liked_movie_ids': ?1 } }")
+	void removeMovieLike(String recommendMovieLikesId, String MovieId);
+	@Query("{ '_id': ?0 }")
+	@Update("{ '$pull': { 'liked_tmdb_movie_ids': ?1 } }")
+	void removeTmdbMovieLike(String recommendMovieLikesId, int tmdbMovieId);
+}

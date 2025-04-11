@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65d0ee7f17c0acd6478a7e573775a9d1ad608a6635c4b54fd0a85c407f9060f1
-size 789
+package com.music.note.recommend.domain.recommned.music;
+
+import java.time.LocalDateTime;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Document(collection = "recommend_music")
+public class RecommendMusic {
+
+	@Id
+	private String id;
+
+	private String trackName;
+
+	private String artistName;
+
+	private String albumCoverPath;
+
+	private String releaseDate;
+
+	private int durationMs;
+
+	private String userId;
+
+	private String spotifyMusicId;
+
+	@Builder.Default
+	private LocalDateTime createdAt = LocalDateTime.now();
+}

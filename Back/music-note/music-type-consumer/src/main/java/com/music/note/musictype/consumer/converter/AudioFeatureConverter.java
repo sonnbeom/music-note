@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e6d5f7f32f0d6b4d8f4d2f6491e59964ee15a54142c82267b4dcfda484d2b8a
-size 944
+package com.music.note.musictype.consumer.converter;
+
+import java.util.List;
+
+import com.music.note.kafkaeventmodel.dto.MusicListEvent;
+import com.music.note.musictype.consumer.dto.daily.AudioFeaturesDto;
+
+public class AudioFeatureConverter {
+	public static List<AudioFeaturesDto> toList(MusicListEvent event) {
+		return event.getMusicList().stream()
+			.map(music -> AudioFeaturesDto.builder()
+				.tempo(music.getAudioFeatures().getTempo())
+				.acousticness(music.getAudioFeatures().getAcousticness())
+				.danceability(music.getAudioFeatures().getDanceability())
+				.energy(music.getAudioFeatures().getEnergy())
+				.instrumentalness(music.getAudioFeatures().getInstrumentalness())
+				.liveness(music.getAudioFeatures().getLiveness())
+				.loudness(music.getAudioFeatures().getLoudness())
+				.speechiness(music.getAudioFeatures().getSpeechiness())
+				.valence(music.getAudioFeatures().getValence())
+				.build()
+			)
+			.toList();
+	}
+}

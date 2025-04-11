@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:375f38869c2b6b1bdaddb419868d639dd913d3c3e1d0adae1a4f217b6b91f120
-size 766
+# routers/recommend/music_recommend.py
+
+from fastapi import APIRouter
+from modelschemas.request_response import MusicList, BigFiveScore, Music
+from utils.recommender.music_recommender import MusicRecommender
+import time
+
+router = APIRouter()
+music_recommender = MusicRecommender()
+
+@router.post("/music", response_model=MusicList)
+async def recommend_music(data: BigFiveScore):
+    before = time.time()
+    if not isinstance(data, BigFiveScore):
+        data = BigFiveScore(**data)  # dict → BigFiveScore
+    musics = await music_recommender.recommend_musics_from_bigfive(bigfive=data)
+    music_objs = [Music(**m) if isinstance(m, dict) else m for m in musics]
+    after = time.time()
+    print(f"시간 : {after-before}")
+    return MusicList(musics=music_objs)

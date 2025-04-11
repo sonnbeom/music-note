@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00072868798e229b8164c04e4ea252a01552f3a4141d7137a9629b1ca7d60f4f
-size 902
+server:
+  port: 0
+
+spring:
+  application:
+    name: notification-server
+  kafka:
+    bootstrap-servers:
+      - 127.0.0.1:10000
+      - 127.0.0.1:10001
+      - 127.0.0.1:10002
+    consumer:
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.json.trusted.packages: "*"
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

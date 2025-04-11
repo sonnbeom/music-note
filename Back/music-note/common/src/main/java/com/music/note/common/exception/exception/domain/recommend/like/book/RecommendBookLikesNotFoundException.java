@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:81db43dd03c58eecfd38cb2bd8baf5c55d3cbcb038b74c56ae4a5a33c724f1f9
-size 517
+package com.music.note.common.exception.exception.domain.recommend.like.book;
+
+import com.music.note.common.exception.exception.common.ErrorCode;
+import com.music.note.common.exception.exception.domain.BusinessBaseException;
+
+public class RecommendBookLikesNotFoundException extends BusinessBaseException {
+	public RecommendBookLikesNotFoundException(String message,
+		ErrorCode errorCode) {
+		super(message, errorCode);
+	}
+
+	public RecommendBookLikesNotFoundException(ErrorCode errorCode) {
+		super(errorCode);
+	}
+}

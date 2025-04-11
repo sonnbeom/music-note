@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9ecb14ff973151ce8791076b14b1592b0fb78f545586cf71c81c122555753478
-size 518
+package com.music.note.common.exception.exception.domain.personalityreport;
+
+import com.music.note.common.exception.exception.common.ErrorCode;
+import com.music.note.common.exception.exception.domain.BusinessBaseException;
+
+public class PersonalityNotFoundByUserIdException extends BusinessBaseException {
+	public PersonalityNotFoundByUserIdException(String message,
+		ErrorCode errorCode) {
+		super(message, errorCode);
+	}
+
+	public PersonalityNotFoundByUserIdException(ErrorCode errorCode) {
+		super(errorCode);
+	}
+}

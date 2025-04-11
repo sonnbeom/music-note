@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bac618e2342ba898b188af07f633c88d6ebae6dcee0203081ea708dac418f88c
-size 567
+package com.music.note.common.response;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CommonResponse<T> {
+	private int status;
+	private String message;
+	private T data;
+
+	// ✅ 성공 응답
+	public static <T> CommonResponse<T> success(T data) {
+		return new CommonResponse<>(200, "success", data);
+	}
+
+	public static <T> CommonResponse<T> success(String message, T data) {
+		return new CommonResponse<>(200, message, data);
+	}
+}

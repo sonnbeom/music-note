@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4a7fd447b10208109ec65115711dc5aaaddd805456bc0f1859eb62b72f0723d3
-size 621
+package com.music.note.recommend.repository.recommend.movie;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import com.music.note.recommend.domain.recommned.book.RecommendBook;
+import com.music.note.recommend.domain.recommned.movie.RecommendMovie;
+
+@Repository
+public interface RecommendMovieRepository extends MongoRepository<RecommendMovie,String> {
+	List<RecommendMovie> findTop20ByUserIdOrderByCreatedAtDesc(String userId);
+	Optional<RecommendMovie> findFirstByTmdbMovieId(int tmdbMovieId);
+}

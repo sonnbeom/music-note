@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f61a411026e45da6b1b2c8cb05c840aa0fbd756773d91e9bcb98e35168c7dae9
-size 828
+package com.music.note.recommend.dto.music;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
+public class RecommendMusicDto {
+
+	@Setter
+	private String recommendMusicId;
+
+	@JsonProperty("track_name")
+	private String trackName;
+
+	@JsonProperty("artist_name")
+	private String artistName;
+
+	@JsonProperty("albumcover_path")
+	private String albumCoverPath;
+
+	@JsonProperty("release_date")
+	private String releaseDate;
+	@JsonProperty("duration_ms")
+	private int durationMs;
+	@JsonProperty("id")
+	private String spotifyMusicId;
+}

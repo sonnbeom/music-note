@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2383001a4d51e20b1131d87cf8751f652a62d203ec8324cf4ef9ba309c6c215f
-size 1115
+package com.music.note.recommend.domain.like.music;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Document(collection = "recommend_music_likes")
+public class RecommendMusicLikes {
+	@Id
+	private String id;
+	@Field("liked_music_ids") // 필드명 지정
+	private List<String> likeMusicIds = new ArrayList<>();
+
+	@Field("liked_music_spotify_music_id") // 필드명 지정
+	private List<String> likeMusicSpotifyMusicIds = new ArrayList<>();
+	private String userId;
+	@Builder.Default
+	private LocalDateTime createdAt = LocalDateTime.now();
+	public boolean isLiked(String musicId) {
+		return likeMusicIds.contains(musicId);
+	}
+	public boolean isLikedBySpotifyMusicId(String spotifyMusicId) {
+		return likeMusicSpotifyMusicIds.contains(spotifyMusicId);
+	}
+}

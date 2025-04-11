@@ -1,3 +1,62 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4f643e08a99e9f600eb2afa716acd8acbf0b3ac5b1d42a18ff14f76649a87d7a
-size 1548
+package com.music.note.recommend.domain.recommned.movie;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.music.note.recommend.dto.movie.CreditDto;
+import com.music.note.recommend.dto.movie.RecommendMovieDto;
+
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Document(collection = "recommend_movie")
+public class RecommendMovie {
+	@Id
+	private String id;
+	private String overview;
+	private String posterPath;
+	private String releaseDate;
+	private String title;
+	private double voteAverage;
+	private String userId;
+	private List<String> genres;
+	private int runtime;
+	private List<CreditDto> credits;
+	private boolean adult;
+	@JsonProperty("backdrop_path")
+	private String backdropPath;
+	private double popularity;
+	private int tmdbMovieId;
+
+	@Builder.Default
+	private LocalDateTime createdAt = LocalDateTime.now();
+
+	public RecommendMovieDto EntityToDto(){
+		return RecommendMovieDto.builder()
+			.recommendMovieId(id)
+			.credits(credits)
+			.genres(genres)
+			.title(title)
+			.overview(overview)
+			.posterPath(posterPath)
+			.runtime(runtime)
+			.voteAverage(voteAverage)
+			.releaseDate(releaseDate)
+			.createdAt(createdAt)
+			.popularity(popularity)
+			.backdropPath(backdropPath)
+			.tmdbMovieId(tmdbMovieId)
+			.recommendMovieId(id)
+			.build();
+	}
+}

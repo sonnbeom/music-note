@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ba15e4c7abea597f32fe2ff679f8c7fc69b3f34243962eda855477cc4d1f0b8e
-size 555
+package com.music.note.musictype.consumer.kafka.proiducer;
+
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import com.music.note.kafkaeventmodel.dto.NotificationEvent;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class NotificationProducer {
+	private final KafkaTemplate<String, NotificationEvent> kafkaTemplate;
+
+	public void sendMusicListEvent(NotificationEvent event) {
+		kafkaTemplate.send("notification", event);
+	}
+}

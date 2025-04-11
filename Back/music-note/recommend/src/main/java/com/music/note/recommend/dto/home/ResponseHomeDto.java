@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bb357d578826f7efd42d8467eb7c089306a57a3b8738ed7f0f1c5b594158f81
-size 623
+package com.music.note.recommend.dto.home;
+
+import java.util.List;
+
+import com.music.note.recommend.dto.music.RecommendMusicDto;
+import com.music.note.recommend.dto.report.ResponseReportDto;
+import com.music.note.recommend.dto.report.music.MusicDto;
+import com.music.note.recommend.dto.type.TypeDto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ResponseHomeDto {
+	private TypeDto typeDto;
+	private String todayMessage;
+	private List<MusicDto> musicDtoList;
+	private String reportId;
+}

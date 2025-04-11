@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3c69b0e9d1c7d7823eb835c2f1904e6560da840d38fa7ab9843ba5bc3d42bc76
-size 623
+# .gitignore for FastAPI
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Model files
+models/*.pkl
+!models/personality_model_rf_multi.pkl
+!models/feature_scaler.pkl
+!models/music_score_scaler.pkl
+!models/label_scaler.pkl
+!models/onet_bigfive_mapped.pkl
+!models/kmeans_model.pkl
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE configs
+.vscode/
+.idea/
+
+# datasets
+*.json
+*.csv
+!data/user_bigfive.csv
+!data/user_genre_counts.json
+
+# past scripts
+scripts/past/

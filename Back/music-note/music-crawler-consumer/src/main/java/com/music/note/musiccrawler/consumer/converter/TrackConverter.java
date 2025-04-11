@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11efd042250fb8471660655d41e4f8f4a3a3af53fcb36ed1d9219017270aee86
-size 1120
+package com.music.note.musiccrawler.consumer.converter;
+
+import com.music.note.kafkaeventmodel.dto.MusicDto;
+import com.music.note.musiccrawler.consumer.dto.TrackDataResponse;
+import com.music.note.trackdomain.domain.AudioFeatures;
+import com.music.note.trackdomain.domain.Track;
+
+public class TrackConverter {
+	public static Track toTrack(MusicDto musicDto, TrackDataResponse trackDataResponse) {
+		return Track.builder()
+			.spotifyId(musicDto.getSpotifyId())
+			.title(musicDto.getTitle())
+			.artist(musicDto.getArtist())
+			.imageUrl(musicDto.getImageUrl())
+			.audioFeatures(toAudioFeatures(trackDataResponse))
+			.build();
+	}
+
+	private static AudioFeatures toAudioFeatures(TrackDataResponse response) {
+		return AudioFeatures.builder()
+			.tempo(response.getTempo())
+			.loudness(response.getLoudness())
+			.acousticness(response.getAcousticness())
+			.danceability(response.getDanceability())
+			.energy(response.getEnergy())
+			.instrumentalness(response.getInstrumentalness())
+			.liveness(response.getLiveness())
+			.speechiness(response.getSpeechiness())
+			.valence(response.getValence())
+			.build();
+	}
+}

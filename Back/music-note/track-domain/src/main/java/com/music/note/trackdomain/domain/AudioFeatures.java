@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ee85936359e313a92d9beea7e41b9b4213d61e3a2cc4747da26c2b1003dc6f49
-size 703
+package com.music.note.trackdomain.domain;
+
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
+@AllArgsConstructor
+public class AudioFeatures {
+
+	@Field("tempo")
+	private double tempo;
+
+	@Field("acousticness")
+	private double acousticness;
+
+	@Field("danceability")
+	private double danceability;
+
+	@Field("energy")
+	private double energy;
+
+	@Field("instrumentalness")
+	private double instrumentalness;
+
+	@Field("liveness")
+	private double liveness;
+
+	@Field("loudness")
+	private double loudness;
+
+	@Field("speechiness")
+	private double speechiness;
+
+	@Field("valence")
+	private double valence;
+
+}

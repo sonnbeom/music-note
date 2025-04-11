@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:228ed42aa91c2ad4c8ee7fe68ae0905cefe3e656d495c486ef9c8dee921f4e46
-size 586
+package com.music.note.recommend.mapper.like.music;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.music.note.recommend.domain.like.music.RecommendMusicLikes;
+
+@Component
+public class RecommendMusicLikeMapper {
+	public RecommendMusicLikes createRecommendMusicLikes(String spotifyMusicId, String userId) {
+		return RecommendMusicLikes.builder()
+			.likeMusicSpotifyMusicIds(new ArrayList<>(List.of(spotifyMusicId)))
+			.userId(userId)
+			.createdAt(LocalDateTime.now())
+			.build();
+	}
+}

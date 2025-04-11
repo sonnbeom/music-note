@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aac97ebcf9e71d926b4d13828d346e0fbf114747d2c466b3fe76b78d8ca39bb0
-size 1181
+package com.music.note.common.exception.handler;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.music.note.common.exception.exception.common.ErrorCode;
+import com.music.note.common.exception.exception.domain.BusinessBaseException;
+import com.music.note.common.exception.response.ErrorResponse;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestControllerAdvice
+@Slf4j
+public class GlobalExceptionHandler {
+
+	@ExceptionHandler(BusinessBaseException.class)
+	public ResponseEntity<ErrorResponse> handleBusinessBaseException(BusinessBaseException exception) {
+		return ResponseEntity
+			.status(exception.getErrorCode().getStatus())
+			.body(ErrorResponse.of(exception.getErrorCode()));
+	}
+
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorResponse> handleServerException(Exception exception) {
+		log.info("Server Error: {}", exception.getMessage());
+		return ResponseEntity
+			.status(HttpStatus.INTERNAL_SERVER_ERROR)
+			.body(ErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR));
+	}
+
+}

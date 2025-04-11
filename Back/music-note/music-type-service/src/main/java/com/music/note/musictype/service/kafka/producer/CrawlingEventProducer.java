@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad7376d4a3283dc3f9e8bf928904d70b853e894f0fc94a35ee107d22d99376f6
-size 752
+package com.music.note.musictype.service.kafka.producer;
+
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import com.music.note.kafkaeventmodel.dto.MusicListWithMissingEvent;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class CrawlingEventProducer {
+	private final KafkaTemplate<String, MusicListWithMissingEvent> kafkaTemplate;
+
+	public void sendCrawlingEvent(MusicListWithMissingEvent event) {
+		log.info("[Producing Type Event] -> userId={}, musicListSize={}, missingTracks={}",
+			event.getUserId(), event.getExistingTracks().size(), event.getMissingTracks().size());
+		kafkaTemplate.send("music-crawl", event);
+	}
+}

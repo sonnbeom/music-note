@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c08e94a740c36585561ff329a4dacd344c01bcf0e0d2641036c7b17654d14bc4
-size 545
+package com.music.note.recommend.mapper.like.book;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.music.note.recommend.domain.like.book.RecommendBookLikes;
+
+@Component
+public class RecommendBookLikeMapper {
+	public RecommendBookLikes createRecommendBookLikes(String isbn, String userId) {
+		return RecommendBookLikes.builder()
+			.userId(userId)
+			.likedIsbns(new ArrayList<>(List.of(isbn)))
+			.createdAt(LocalDateTime.now())
+			.build();
+	}
+}

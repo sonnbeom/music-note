@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:52dd8bb857ef57620909c7a7bab425aefc54b3b03a19cab0881d0bea87d418de
-size 655
+package com.music.note.musictype.consumer.dto.weekly;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class WeeklyReportDto {
+
+	private Trends trends;
+	private String summary;
+	private String top_growth;
+	private String top_decline;
+	private String top_fluctuation;
+
+	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public static class Trends {
+		private String openness;
+		private String conscientiousness;
+		private String extraversion;
+		private String agreeableness;
+		private String neuroticism;
+	}
+}

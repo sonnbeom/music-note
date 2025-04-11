@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:823d409e432e8932f7278a4ff826eae6db7e262f710a8fdfa782fd229bcf65e5
-size 800
+package com.music.note.notificationserver.kafka.consumer;
+
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+import com.music.note.kafkaeventmodel.dto.NotificationEvent;
+import com.music.note.notificationserver.service.NotificationService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+@RequiredArgsConstructor
+public class NotificationConsumer {
+
+	private final NotificationService notificationService;
+
+	@KafkaListener(topics = "notification", groupId = "notification-group")
+	public void consumeTypeEvent(NotificationEvent event) {
+		log.info(">>> 알림 잔송 <<<");
+		log.info("userId: {}, msg: {}", event.getUserId(), event.getMessage());
+		notificationService.sendNotification(event);
+	}
+}

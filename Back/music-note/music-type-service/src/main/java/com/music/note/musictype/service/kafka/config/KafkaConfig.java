@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:89cfc782cebca5468bf769545f5d5fef269853a4df8164e544875da1e4009ccd
-size 690
+package com.music.note.musictype.service.kafka.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
+import org.springframework.kafka.core.ConsumerFactory;
+
+@Configuration
+public class KafkaConfig {
+	@Bean
+	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory(
+		ConsumerFactory<String, String> consumerFactory) {
+		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
+		factory.setConsumerFactory(consumerFactory);
+		return factory;
+	}
+}
