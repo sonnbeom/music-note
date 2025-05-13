@@ -13,11 +13,6 @@
 2. 분석한 성향 (Big Five 기반)을 일간, 주간 기준으로 레포트를 제공함으로써 인지하지 못한 메타인지에 대해 알려줍니다.
 3. 분석한 성향을 바탕으로 유저의 성향에 맞는 컨텐츠를 추천합니다.(책, 음악, 영화)
 
-## ERD
-
-
-![Image](https://github.com/user-attachments/assets/69d195de-d749-4d60-ac65-07d402eaed5b)
-
 
 ## 시스템 아키텍처
 ![시스템 아키텍처](Back/img/SystemArchitecture.png)
